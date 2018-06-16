@@ -71,7 +71,7 @@ class TicTacToe
     if won? == false
       return nil
     end
-    winner_index = won?(
+    winner_index = won?
     winner_index.each do |index|
       winner_chars << @board[index]
     end
