@@ -71,7 +71,7 @@ class TicTacToe
     if TicTacToe.won? == false
       return nil
     end
-    winner_index = won?
+    winner_index = TicTacToe.won?
     winner_index.each do |index|
       winner_chars << @board[index]
     end
@@ -100,7 +100,7 @@ class TicTacToe
   end
 
   def move(index, current_player)
-    @board[index] = current_player
+    @board[index] = TicTacToe.current_player
   end
 
   def position_taken?(location)
@@ -108,7 +108,7 @@ class TicTacToe
   end
 
   def valid_move?(index)
-    index.between?(0,8) && !position_taken?(index)
+    index.between?(0,8) && !TicTacToe.position_taken?(index)
   end
 
   def turn_count
