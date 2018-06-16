@@ -130,24 +130,24 @@ class TicTacToe
     index = input_to_index(input)
     if valid_move?(index)
       player = current_player
-      TicTacToe1.move(index, player)
-      TicTacToe1.display_board
+      TicTacToe.move(index, player)
+      TicTacToe.display_board
       else
-      TicTacToe1.turn
+      TicTacToe.turn
     end
   end
 
   def play
-    while TicTacToe1.over? == false
-      TicTacToe1.turn
-      if TicTacToe1.draw? == true
+    while TicTacToe.over? == false
+      TicTacToe.turn
+      if TicTacToe.draw? == true
         break
       end
     end
-    if TicTacToe1.draw? == true
+    if TicTacToe.draw? == true
       puts "Cat's Game!"
     else
-      if TicTacToe1.winner == "X"
+      if TicTacToe.winner == "X"
         puts "Congratulations X!"
       else
         puts "Congratulations O!"
