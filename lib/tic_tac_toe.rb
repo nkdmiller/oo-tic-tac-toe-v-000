@@ -68,7 +68,7 @@ class TicTacToe
 
   def winner
     winner_chars = []
-    if won? == false
+    if TicTacToe.won? == false
       return nil
     end
     winner_index = won?
