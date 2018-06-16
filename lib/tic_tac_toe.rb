@@ -51,7 +51,7 @@ class TicTacToe
   end
 
   def draw?
-    if TicTacToe.full? && !TicTacToe.won?
+    if full? && !won?
       return true
     else
       return false
@@ -59,7 +59,7 @@ class TicTacToe
   end
 
   def over?
-    if TicTacToe.won? != false || TicTacToe.full?
+    if won? != false || full?
       return true
     else
       return false
@@ -68,10 +68,10 @@ class TicTacToe
 
   def winner
     winner_chars = []
-    if TicTacToe.won? == false
+    if won? == false
       return nil
     end
-    winner_index = TicTacToe.won?
+    winner_index = won?
     winner_index.each do |index|
       winner_chars << @board[index]
     end
@@ -100,7 +100,7 @@ class TicTacToe
   end
 
   def move(index, current_player)
-    @board[index] = TicTacToe.current_player
+    @board[index] = current_player
   end
 
   def position_taken?(location)
@@ -108,7 +108,7 @@ class TicTacToe
   end
 
   def valid_move?(index)
-    index.between?(0,8) && !TicTacToe.position_taken?(index)
+    index.between?(0,8) && !position_taken?(index)
   end
 
   def turn_count
@@ -117,7 +117,7 @@ class TicTacToe
   end
 
   def current_player
-    if TicTacToe.turn_count % 2 == 0
+    if turn_count % 2 == 0
       current_player = "X"
     else
       current_player = "O"
@@ -129,25 +129,25 @@ class TicTacToe
     input = gets.strip
     index = input_to_index(input)
     if valid_move?(index)
-      player = TicTacToe.current_player
-      TicTacToe.move(index, player)
-      TicTacToe.display_board
+      player = current_player
+      move(index, player)
+      display_board
       else
-      TicTacToe.turn
+      turn
     end
   end
 
   def play
-    while TicTacToe.over? == false
-      TicTacToe.turn
-      if TicTacToe.draw? == true
+    while over? == false
+      turn
+      if draw? == true
         break
       end
     end
-    if TicTacToe.draw? == true
+    if draw? == true
       puts "Cat's Game!"
     else
-      if TicTacToe.winner == "X"
+      if winner == "X"
         puts "Congratulations X!"
       else
         puts "Congratulations O!"
