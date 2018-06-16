@@ -129,7 +129,7 @@ class TicTacToe
     input = gets.strip
     index = input_to_index(input)
     if valid_move?(index)
-      player = current_player
+      player = TicTacToe.current_player
       TicTacToe.move(index, player)
       TicTacToe.display_board
       else
