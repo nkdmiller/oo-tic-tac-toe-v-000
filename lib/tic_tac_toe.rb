@@ -59,7 +59,7 @@ class TicTacToe
   end
 
   def over?
-    if won? != false || full?
+    if TicTacToe.won? != false || full?
       return true
     else
       return false
