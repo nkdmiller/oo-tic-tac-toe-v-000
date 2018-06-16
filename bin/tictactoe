@@ -3,8 +3,7 @@ require 'pry'
 require_relative '../lib/tic_tac_toe.rb'
 
 puts "Welcome to Tic Tac Toe!"
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-TicTacToe1 = TicTacToe.new(board)
+TicTacToe1 = TicTacToe.new
 TicTacToe1.display_board
 TicTacToe1.play
 puts "Thanks for playing!"
